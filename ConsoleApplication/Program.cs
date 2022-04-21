@@ -16,9 +16,13 @@ namespace ConsoleApplication
 
             int daysToChristmas = (christmas - today).Days;
 
+            //if days to christmas is positive, check christmas this year, else check next year (after christmas)
+            daysToChristmas = daysToChristmas >= 0 ? daysToChristmas : (christmas.AddYears(1) - today).Days;
+
             Console.WriteLine($"My name is {userName} ");
             Console.WriteLine($"I am from {location}");
             Console.WriteLine($"Today is {today.ToShortDateString()}, there are {daysToChristmas} days until Christmas");
+            //pause
             Console.ReadKey();
         }
        
